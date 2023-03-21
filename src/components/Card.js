@@ -5,7 +5,7 @@ const Card = ({character, onclick, id}) => {
     // console.log(id);
     return ( 
         <div>
-            <h4 style={{margin: "20px"}} onClick={() => onclick(character)}>{character}</h4>
+            <h4 style={{margin: "20px"}} onClick={() => onclick(id)}>{character}</h4>
         </div>
      );
 }

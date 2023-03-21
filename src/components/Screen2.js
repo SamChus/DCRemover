@@ -3,32 +3,29 @@ import Card from "./Card";
 
 const Screen2 = ({ value }) => {
   const [resultantString, setResultantString] = useState(value);
-  console.log(resultantString);
+  const [text, setText] = useState(value);
 
-  const handleClick = (char) => {
+  const handleClick = (index) => {
+    const clickedChar = text[index];
+    let newStr = "";
 
-    const newStr = removeDuplicates(resultantString, char);
-    setResultantString(newStr);
-  };
-
-  const removeDuplicates = (str, char)  => {
-    const arr = str.split("");
-    const charIndex = arr.indexOf(char);
-
-    for (let i = charIndex + 1; i < arr.length; i++) {
-      if (arr[i] === char && i !== arr.indexOf(char)) {
-        arr.splice(i, 1);
-        // console.log(arr);
-
-        // break;
+    for (let i = 0; i < text.length; i++) {
+      if (text[i] === clickedChar && i !== index) {
+        newStr += " ";
+      } else {
+        newStr += text[i];
       }
     }
-    return arr.join("");
-  }
+
+    setText(newStr);
+    
+  };
+
+
 
   return (
     <div>
-      <p>{resultantString}</p>
+      <p>{text}</p>
       <br />
       {value &&
         value
